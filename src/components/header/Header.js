@@ -14,14 +14,16 @@ const Header = () => {
 
     return (
         <div className="header">
-            <div className="candidate">Front-end Test Candidate</div>
-            <div className="time-remaining">
-                {timeRemaining}
-                {' '}
-                seconds remaining
+            <div className="info">
+                <div className="candidate">Front-end Test Candidate</div>
+                <div className="time-remaining">
+                    {timeRemaining}
+                    {' '}
+                    seconds remaining
+                </div>
             </div>
             <button onClick={handleButtonClick} type="button" className="theme-toggle">
-                {darkModeActive ? 'Light mode' : 'Dark mode'}
+                {darkModeActive ? 'Light mode 🌝' : 'Dark mode 🌚'}
             </button>
         </div>
     );

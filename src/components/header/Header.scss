@@ -6,8 +6,14 @@
     color: themed("text-color");
   }
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ccc;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .candidate, .time-remaining {
@@ -15,6 +21,17 @@
 }
 
 .theme-toggle {
-  padding: 0.25em;
-  margin: 0.5em;
+  @include themify(){
+    color: themed("text-color");
+  }
+  align-self: stretch;
+  background-color: transparent;
+  border: none;
+  padding: 0 1rem;
+  border-left: 1px solid #ccc;
+  white-space: nowrap;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
