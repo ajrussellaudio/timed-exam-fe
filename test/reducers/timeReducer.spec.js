@@ -27,4 +27,14 @@ describe('Time reducer', () => {
         };
         expect(reducer(state, action)).toEqual({ timeRemaining: 233 });
     });
+
+    it('does not decrement current time below zero', () => {
+        const state = {
+            timeRemaining: 0,
+        };
+        const action = {
+            type: types.DECREMENT_REMAINING_TIME,
+        };
+        expect(reducer(state, action)).toEqual({ timeRemaining: 0 });
+    });
 });

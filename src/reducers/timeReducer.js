@@ -9,7 +9,7 @@ export default function timeReducer(state = defaultState, action) {
     case types.DECREMENT_REMAINING_TIME:
         return {
             ...state,
-            timeRemaining: state.timeRemaining - 1,
+            timeRemaining: Math.max(0, state.timeRemaining - 1),
         };
     case types.SET_REMAINING_TIME:
         return {
