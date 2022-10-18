@@ -1,33 +1,13 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { setRemainingTime } from '../actions/timeActions';
-import timeService from '../services/timeService';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import Header from './header/Header';
-
+import useRemainingTime from '../hooks/useRemainingTime';
 import './App.scss';
-
-const GET_REMAINING_TIME_TIMER = 10 * 1000; // every 10 seconds
-let interval;
 
 const App = () => {
     const darkModeActive = useSelector((state) => state.darkMode.isActive);
-    const dispatch = useDispatch();
 
-    const updateTime = async () => {
-        const timeRemaining = await timeService.requestUpdatedTime();
-        dispatch(setRemainingTime(timeRemaining));
-    };
-
-    useEffect(async () => {
-        await updateTime();
-        interval = setInterval(() => {
-            updateTime();
-        }, GET_REMAINING_TIME_TIMER);
-        return () => {
-            clearInterval(interval);
-        };
-    }, []);
+    useRemainingTime();
 
     return (
         <div className={`${darkModeActive ? 'theme--dark' : 'theme--light'}`}>

@@ -6,6 +6,11 @@ const defaultState = {
 
 export default function timeReducer(state = defaultState, action) {
     switch (action.type) {
+    case types.DECREMENT_REMAINING_TIME:
+        return {
+            ...state,
+            timeRemaining: state.timeRemaining - 1,
+        };
     case types.SET_REMAINING_TIME:
         return {
             ...state,
