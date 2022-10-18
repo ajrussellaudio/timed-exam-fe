@@ -1,0 +1,12 @@
+@import 'theme';
+
+$themes: (
+    light: (
+        bg-color: $light-bg-color,
+        text-color: $dark-text-color,
+    ),
+    dark: (
+        bg-color: $dark-bg-color,
+        text-color: $light-text-color,
+    )
+)

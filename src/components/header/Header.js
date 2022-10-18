@@ -1,17 +1,19 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleDarkMode } from '../../actions/darkModeActions';
 import './Header.scss';
 
 const Header = () => {
     const timeRemaining = useSelector((state) => state.time.timeRemaining);
+    const darkModeActive = useSelector((state) => state.darkMode.isActive);
+    const dispatch = useDispatch();
 
     const handleButtonClick = () => {
-        // eslint-disable-next-line no-console
-        console.log('Toggle dark mode');
+        dispatch(toggleDarkMode());
     };
 
     return (
-        <div className="header" style={{ backgroundColor: 'white' }}>
+        <div className="header">
             <div className="candidate">Front-end Test Candidate</div>
             <div className="time-remaining">
                 {timeRemaining}
@@ -19,7 +21,7 @@ const Header = () => {
                 seconds remaining
             </div>
             <button onClick={handleButtonClick} type="button" className="theme-toggle">
-                Dark mode
+                {darkModeActive ? 'Light mode' : 'Dark mode'}
             </button>
         </div>
     );

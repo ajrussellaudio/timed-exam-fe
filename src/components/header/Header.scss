@@ -1,4 +1,10 @@
+@import '../../css/mixin.scss';
+
 .header {
+  @include themify(){
+    background-color: themed("bg-color");
+    color: themed("text-color");
+  }
   display: flex;
   align-items: center;
   border-bottom: 1px solid #ccc;
