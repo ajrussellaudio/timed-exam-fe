@@ -4,15 +4,21 @@ import './Header.scss';
 
 const Header = () => {
     const timeRemaining = useSelector((state) => state.time.timeRemaining);
+
+    const handleButtonClick = () => {
+        // eslint-disable-next-line no-console
+        console.log('Toggle dark mode');
+    };
+
     return (
         <div className="header" style={{ backgroundColor: 'white' }}>
             <div className="candidate">Front-end Test Candidate</div>
             <div className="time-remaining">
-                { timeRemaining }
+                {timeRemaining}
                 {' '}
                 seconds remaining
             </div>
-            <button onClick={() => console.log('Toggle dark mode')} type="button" className="theme-toggle">
+            <button onClick={handleButtonClick} type="button" className="theme-toggle">
                 Dark mode
             </button>
         </div>

@@ -12,7 +12,7 @@ describe('Time reducer', () => {
         const action = {
             type: types.SET_REMAINING_TIME,
             timeRemaining: 234,
-        }
+        };
         expect(reducer(undefined, action)).toEqual({
             timeRemaining: 234,
         });

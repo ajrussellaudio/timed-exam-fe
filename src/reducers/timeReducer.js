@@ -4,7 +4,7 @@ const defaultState = {
     timeRemaining: 0,
 };
 
-export default function (state = defaultState, action) {
+export default function timeReducer(state = defaultState, action) {
     switch (action.type) {
     case types.SET_REMAINING_TIME:
         return {
